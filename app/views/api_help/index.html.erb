@@ -1,0 +1,93 @@
+<span class="left_panel">
+  <div class="table">
+    <%= render partial: 'index', locals: {index_arr: ApiIndexRenderer.user_api_index } %>
+  </div>
+</span>
+<span class='right_panel'>
+    Example <br>
+    email: <br>
+    password: <br>
+</span>
+
+<!-- Area List -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Area List',
+            link_href: 'area',
+            link_method: 'GET',
+            original_link: api_areas_path,
+            parameters: [
+            ],
+            options: {}} %>
+
+<!-- Create Franchise Leader -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Create Franchise Leader',
+            link_href: 'create_franchise_leader',
+            link_method: 'POST',
+            original_link: api_franchise_leaders_path,
+            parameters: [
+              {name: 'name', description: 'Full name', required: 1},
+              {name: 'birth_date', description: 'Birth Date', required: 1},
+              {name: 'mobile_number', description: 'Mobile Number', required: 1},
+              {name: 'exp_in_cab_business', description: 'Experience in cab business', required: 1},
+              {name: 'monthly_expectations', description: 'Monthly Expectations', required: 1},
+              {name: 'area_id', description: 'Area ID get from area list API', required: 1},
+            ],
+            options: {}} %>
+
+<!-- Create Franchise -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Create Franchise',
+            link_href: 'create_franchise',
+            link_method: 'POST',
+            original_link: api_franchises_path,
+            parameters: [
+              {name: 'name', description: 'Full name', required: 1},
+              {name: 'birth_date', description: 'Birth Date', required: 1},
+              {name: 'mobile_number', description: 'Mobile Number', required: 1},
+              {name: 'cars_in_contact', description: 'Cars in contact', required: 1},
+              {name: 'exp_in_cab_business', description: 'Experience in cab business', required: 1},
+              {name: 'monthly_expectations', description: 'Monthly Expectations', required: 1},
+              {name: 'area_id', description: 'Area ID get from area list API', required: 1},
+            ],
+            options: {}} %>
+
+<!-- Create Driver -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Create Driver',
+            link_href: 'create_driver',
+            link_method: 'POST',
+            original_link: api_drivers_path,
+            parameters: [
+              {name: 'name', description: 'Full name', required: 1},
+              {name: 'birth_date', description: 'Birth Date', required: 1},
+              {name: 'mobile_number', description: 'Mobile Number', required: 1},
+              {name: 'cars_plate_number', description: 'Cars plate number', required: 1},
+              {name: 'in_cab_business_from', description: 'In cab business from', required: 1},
+              {name: 'emi', description: 'EMI Amount', required: 1},
+              {name: 'emi_date', description: 'EMI Date', required: 1},
+              {name: 'plan', description: 'Plan', required: 1},
+              {name: 'area_id', description: 'Area ID get from area list API', required: 1},
+            ],
+            options: {}} %>
+
+<!-- Car Type List -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Car Type List',
+            link_href: 'car_type_list',
+            link_method: 'GET',
+            original_link: api_car_types_path,
+            parameters: [
+            ],
+            options: {}} %>
+
+<!-- Car List -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Car List',
+            link_href: 'car_list',
+            link_method: 'GET',
+            original_link: api_cars_path,
+            parameters: [
+              {name: 'car_type_id', description: 'Car Type ID get from car type list API', required: 1},
+            ],
+            options: {}} %>
