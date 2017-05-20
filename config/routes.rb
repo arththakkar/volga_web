@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :drivers, only: [:create]
     resources :car_types, only: [:index]
     resources :cars, only: [:index]
+    get "/get_plan", to: "plans#get_plan"
   end
 end

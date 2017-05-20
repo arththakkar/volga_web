@@ -16,6 +16,7 @@ class ApiIndexRenderer
 			index_arr << ApiIndexRenderer.new("Create Driver", "create_driver", "POST")
 			index_arr << ApiIndexRenderer.new("Car Type List", "car_type_list", "GET")
 			index_arr << ApiIndexRenderer.new("Car List", "car_list", "GET")
+			index_arr << ApiIndexRenderer.new("Plan List", "plan_list", "GET")
 		end
 	end
 end
