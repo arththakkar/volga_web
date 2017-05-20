@@ -16,9 +16,11 @@ class Api::AreasController < ApplicationController
 		end
 
 		if @type == "Franchise"
-			fla = Franchise.where(area_id: area.id).first
+			puts "============IN"
+			fla = FranchiseArea.where(area_id: area.id).first
 			if fla.present?
 				@franchise = Franchise.find(fla.franchise_id)
+				puts "====#{@franchise.inspect}"
 			end
 		end
 	end
