@@ -106,18 +106,6 @@
             ],
             options: {}} %>
 
-<!-- Check Franchise -->
-<%= render  partial: 'api', locals: {
-            link_name: 'Check Allocated',
-            link_href: 'check_allocated',
-            link_method: 'GET',
-            original_link: api_get_plan_path,
-            parameters: [
-              {name: 'car_type_id', description: 'Car Type ID get from car type list API', required: 1},
-              {name: 'model', description: 'Model Number', required: 1},
-            ],
-            options: {}} %>
-
 <!-- Allocated Area -->
 <%= render  partial: 'api', locals: {
             link_name: 'Allocated Area',
