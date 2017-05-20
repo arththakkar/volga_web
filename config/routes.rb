@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :car_types, only: [:index]
     resources :cars, only: [:index]
     get "/get_plan", to: "plans#get_plan"
+    get "/check_allocated", to: "areas#get_allocated"
   end
 end
