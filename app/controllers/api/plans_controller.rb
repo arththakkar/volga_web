@@ -18,7 +18,7 @@ class Api::PlansController < ApplicationController
 			@plan << "Rs. 750 (12 Hours/Day, Fuel Extra)"
 		end
 
-		if car_type_id == 3
+		if car_type.id == 3
 			@plan << "Rs. 35,000 (12 Hours/Day, for 30 Days)"
 		end
 	end
