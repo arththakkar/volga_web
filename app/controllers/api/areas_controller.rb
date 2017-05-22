@@ -13,7 +13,7 @@ class Api::AreasController < ApplicationController
 			if fla.present?
 				@franchise_leader = FranchiseLeader.find(fla.franchise_leader_id)
 			else
-				render_json({:result=>{:messages =>"ok",:rstatus=>1, :errorcode =>""},:data=>{:messages =>"Not Allocated"}}.to_json)
+				render_json({:result=>{:messages =>"ok",:rstatus=>0, :errorcode =>""},:data=>{:messages =>"Not Allocated"}}.to_json)
 			end
 		end
 
@@ -24,7 +24,7 @@ class Api::AreasController < ApplicationController
 				@franchise = Franchise.find(fla.franchise_id)
 				logger.warn "====#{@franchise.inspect}"
 			else
-				render_json({:result=>{:messages =>"ok",:rstatus=>1, :errorcode =>""},:data=>{:messages =>"Not Allocated"}}.to_json)
+				render_json({:result=>{:messages =>"ok",:rstatus=>0, :errorcode =>""},:data=>{:messages =>"Not Allocated"}}.to_json)
 			end
 		end
 	end
