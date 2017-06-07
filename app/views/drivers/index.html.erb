@@ -1,0 +1,28 @@
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Mobile Number</td>
+		<td>Car Plate Number</td>
+		<td>EMI</td>
+		<td>EMI Date</td>
+		<td>In Cab Business From</td>
+		<td>Plan</td>
+		<td>Area</td>
+		<td>Car</td>
+		<td>Model</td>
+	</tr>
+	<% @drivers.each do |driver| %>
+	<tr>
+		<td><%= driver.name %></td>
+		<td><%= driver.mobile_number %></td>
+		<td><%= driver.car_plate_number %></td>
+		<td><%= driver.emi %></td>
+		<td><%= driver.emi_date_dd %></td>
+		<td><%= driver.in_cab_business_from %></td>
+		<td><%= driver.plan %></td>
+		<td><%= driver.area.name %></td>
+		<td><%= driver.car.name %></td>
+		<td><%= driver.model %></td>
+	</tr>
+	<% end %>
+</table>

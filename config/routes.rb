@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     get "/get_plan", to: "plans#get_plan"
     get "/check_allocated", to: "areas#get_allocated"
   end
+
+  resources :drivers, only: [:inedx]
 end
