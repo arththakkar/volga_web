@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     get "/check_allocated", to: "areas#get_allocated"
   end
 
-  resources :drivers, only: [:inedx]
+  resources :drivers
 end
