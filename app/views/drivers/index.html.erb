@@ -21,7 +21,7 @@
 		<td><%= driver.in_cab_business_from %></td>
 		<td><%= driver.plan %></td>
 		<td><%= driver.area.name %></td>
-		<td><%#= driver.car.name %></td>
+		<td><%= driver.try(:car).name %></td>
 		<td><%= driver.model %></td>
 	</tr>
 	<% end %>
