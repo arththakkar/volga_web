@@ -1,0 +1,18 @@
+<table width="100%" border="1">
+	<tr>
+		<td>Name</td>
+		<td>Mobile Number</td>
+		<td>Exp in cab business</td>
+		<td>Monthly Expectation</td>
+		<td>Area</td>
+	</tr>
+	<% @franchise_leaders.each do |franchise_leader| %>
+	<tr>
+		<td><%= franchise_leader.name %></td>
+		<td><%= franchise_leader.mobile_number %></td>
+		<td><%= franchise_leader.exp_in_cab_business %></td>
+		<td><%= franchise_leader.monthly_expectations %></td>
+		<td><%= franchise_leader.area.name %></td>
+	</tr>
+	<% end %>
+</table>

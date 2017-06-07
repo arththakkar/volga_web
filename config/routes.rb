@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :drivers
+  resources :franchises
+  resources :franchise_leaders
 end
