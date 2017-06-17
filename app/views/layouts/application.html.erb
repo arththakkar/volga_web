@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VolgaCabs</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Gryfalcon" />
+
+  <title>Book Cabs Nearby in Ahmedabad at Best Prices | Hire Taxi Nearby in Ahmedabad at Volga Cabs</title>
+
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="stretched">
+	<!-- <div id="wrapper" class="clearfix"> -->
+		<%= render "layouts/header" %>
+		<%#= render "layouts/slider" %>
+		<%#= render "layouts/page_menu" %>
+		<%= yield %>
+	<!-- </div> -->
 </body>
 </html>

@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :drivers
   resources :franchises
   resources :franchise_leaders
+
+  root "home#index"
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514145859) do
+ActiveRecord::Schema.define(version: 20170522183613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,37 @@ ActiveRecord::Schema.define(version: 20170514145859) do
     t.string   "emi"
     t.string   "emi_date"
     t.string   "in_cab_business_from"
-    t.integer  "plan"
+    t.string   "plan"
     t.integer  "area_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "car_id"
+    t.string   "model"
+    t.integer  "emi_date_dd"
   end
 
   add_index "drivers", ["area_id"], name: "index_drivers_on_area_id", using: :btree
+  add_index "drivers", ["car_id"], name: "index_drivers_on_car_id", using: :btree
+
+  create_table "franchise_areas", force: :cascade do |t|
+    t.integer  "franchise_id"
+    t.integer  "area_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "franchise_areas", ["area_id"], name: "index_franchise_areas_on_area_id", using: :btree
+  add_index "franchise_areas", ["franchise_id"], name: "index_franchise_areas_on_franchise_id", using: :btree
+
+  create_table "franchise_leader_areas", force: :cascade do |t|
+    t.integer  "franchise_leader_id"
+    t.integer  "area_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "franchise_leader_areas", ["area_id"], name: "index_franchise_leader_areas_on_area_id", using: :btree
+  add_index "franchise_leader_areas", ["franchise_leader_id"], name: "index_franchise_leader_areas_on_franchise_leader_id", using: :btree
 
   create_table "franchise_leaders", force: :cascade do |t|
     t.string   "name"
@@ -83,6 +107,11 @@ ActiveRecord::Schema.define(version: 20170514145859) do
 
   add_foreign_key "cars", "car_types"
   add_foreign_key "drivers", "areas"
+  add_foreign_key "drivers", "cars"
+  add_foreign_key "franchise_areas", "areas"
+  add_foreign_key "franchise_areas", "franchises"
+  add_foreign_key "franchise_leader_areas", "areas"
+  add_foreign_key "franchise_leader_areas", "franchise_leaders"
   add_foreign_key "franchise_leaders", "areas"
   add_foreign_key "franchises", "areas"
 end
