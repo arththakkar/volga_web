@@ -15,10 +15,8 @@
  *= require style
  *= require dark
  *= require font-icons
- *= require et-line
  *= require animate
  *= require magnific-popup
- *= require fonts
  *= require responsive
  *= require_self
  */
