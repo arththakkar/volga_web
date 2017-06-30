@@ -28,49 +28,49 @@
 		    		<div class="form-group">
 		    			<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.email_field :email_id, class: "form-control", placeholder: "Email Address" %>
+			          	<%= f.email_field :email_id, class: "form-control", placeholder: "Email Address", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 		    			<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+			          	<%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 		    			<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :address1, class: "form-control", placeholder: "Address" %>
+			          	<%= f.text_field :address1, class: "form-control", placeholder: "Address", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.select :address2, options_from_collection_for_select(Area.all, :name, :name), {}, class: "form-control select2" %>
+			          	<%= f.select :address2, options_from_collection_for_select(Area.all, :name, :name), {}, class: "form-control select2", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :city, class: "form-control", placeholder: "City" %>
+			          	<%= f.text_field :city, class: "form-control", placeholder: "City", value: "Ahmedabad", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :state, class: "form-control", placeholder: "State", value: "Gujarat" %>
+			          	<%= f.text_field :state, class: "form-control", placeholder: "State", value: "Gujarat", required: true %>
 			          </div>
 			        </div>
 			      </div>
 			      <div class="form-group">
 			        <div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :country, class: "form-control", placeholder: "Country", value: "India" %>
+			          	<%= f.text_field :country, class: "form-control", placeholder: "Country", value: "India", required: true %>
 			          </div>
 			        </div>
 			      </div>
@@ -78,70 +78,70 @@
 			      <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :mobile_no, class: "form-control", placeholder: "Mobile Number" %>
+			          	<%= f.text_field :mobile_no, class: "form-control", placeholder: "Mobile Number", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :birthdate, class: "form-control", placeholder: "Date of Birth" %>
+			          	<%= f.text_field :birthdate, class: "form-control", placeholder: "Date of Birth", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :adhaar_no, class: "form-control", placeholder: "Adhaar Number" %>
+			          	<%= f.text_field :adhaar_no, class: "form-control", placeholder: "Adhaar Number", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :pan_no, class: "form-control", placeholder: "PAN Number" %>
+			          	<%= f.text_field :pan_no, class: "form-control", placeholder: "PAN Number", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :nominee_name, class: "form-control", placeholder: "Nominee Name" %>
+			          	<%= f.text_field :nominee_name, class: "form-control", placeholder: "Nominee Name", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :relation_with_nominee, class: "form-control", placeholder: "Relation with Nominee" %>
+			          	<%= f.text_field :relation_with_nominee, class: "form-control", placeholder: "Relation with Nominee", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :amount, class: "form-control", placeholder: "Amount" %>
+			          	<%= f.text_field :amount, class: "form-control", placeholder: "Amount", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :cheque_no, class: "form-control", placeholder: "Cheque Number" %>
+			          	<%= f.text_field :cheque_no, class: "form-control", placeholder: "Cheque Number", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :cheque_date, class: "form-control", placeholder: "Cheque Date" %>
+			          	<%= f.text_field :cheque_date, class: "form-control", placeholder: "Cheque Date", required: true %>
 			          </div>
 			        </div>
 		        </div>
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.text_field :bank_name, class: "form-control", placeholder: "Bank Name" %>
+			          	<%= f.text_field :bank_name, class: "form-control", placeholder: "Bank Name", required: true %>
 			          </div>
 			        </div>
 		        </div>
