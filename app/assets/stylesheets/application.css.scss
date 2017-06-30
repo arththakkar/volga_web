@@ -11,5 +11,17 @@
  * file per style scope.
  *
  * require_tree .
+ *= require font-awesome
+ *= require AdminLTE.min
+ *= require _all-skins.min
+ *= require blue
+ *= require morris
+ *= require jquery-jvectormap-1.2.2
+ *= require datepicker3
+ *= require daterangepicker
+ *= require bootstrap3-wysihtml5.min
+ *= require select2.min
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";

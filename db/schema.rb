@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522183613) do
+ActiveRecord::Schema.define(version: 20170630213515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,32 @@ ActiveRecord::Schema.define(version: 20170522183613) do
   end
 
   add_index "cars", ["car_type_id"], name: "index_cars_on_car_type_id", using: :btree
+
+  create_table "confirm_franchises", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.date     "birthdate"
+    t.text     "pan_no"
+    t.string   "email_id"
+    t.text     "adhaar_no"
+    t.string   "nominee_name"
+    t.string   "relation_with_nominee"
+    t.float    "amount"
+    t.text     "cheque_no"
+    t.date     "cheque_date"
+    t.string   "bank_name"
+    t.boolean  "is_pan_card"
+    t.boolean  "is_adhaar_card"
+    t.boolean  "is_light_bill"
+    t.text     "franchise_code"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "mobile_no"
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.string   "name"
@@ -104,6 +130,24 @@ ActiveRecord::Schema.define(version: 20170522183613) do
   end
 
   add_index "franchises", ["area_id"], name: "index_franchises_on_area_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "cars", "car_types"
   add_foreign_key "drivers", "areas"

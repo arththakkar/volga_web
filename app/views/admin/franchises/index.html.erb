@@ -1,0 +1,51 @@
+<section class="content-header">
+  <h1>
+    Franchises
+    <small>List</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Franchises</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">List of Franchises</h3>
+          <div class="box-tools">
+            <%= link_to "<i class='fa fa-plus'></i>".html_safe, new_admin_confirm_franchise_path, class: "btn btn-info btn-primary" %>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Area</th>
+                <th>Email ID</th>
+                <th>Cheque Number</th>
+                <th>Cheque Date</th>
+                <th>Bank Name</th>
+              </tr>
+              <% @franchises.each do |franchise| %>
+                <tr>
+                  <td><%= link_to franchise.name, admin_confirm_franchise_path(franchise) %></td>
+                  <td><%= franchise.address2 %></td>
+                  <td><%= franchise.email_id %></td>
+                  <td><%= franchise.cheque_no %></td>
+                  <td><%= franchise.cheque_date %></td>
+                  <td><%= franchise.bank_name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>

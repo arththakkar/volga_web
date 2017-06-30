@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   get "api_help/index", :as => :api_help
   namespace :api, :defaults => {:format => 'json'} do
     resources :areas, only: [:index]
@@ -15,5 +19,8 @@ Rails.application.routes.draw do
   resources :franchises
   resources :franchise_leaders
 
-  root "home#index"
+  namespace :admin do
+    root "home#index"
+    resources :confirm_franchises, controller: "franchises"
+  end
 end

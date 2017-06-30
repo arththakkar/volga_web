@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Gryfalcon" />
-
-  <title>Book Cabs Nearby in Ahmedabad at Best Prices | Hire Taxi Nearby in Ahmedabad at Volga Cabs</title>
-
-  <!-- <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" /> -->
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
-
-	<!-- External JavaScripts
-	============================================= -->
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Book Cabs Nearby in Ahmedabad at Best Prices | Hire Taxi Nearby in Ahmedabad at Volga Cabs</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
 </head>
-<body class="stretched side-push-panel">
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+	<%= render "layouts/header" %>
+	<!-- Left side column. contains the logo and sidebar -->
+	<%= render "layouts/sidebar" %>
+	<div class="content-wrapper">
 	<%= yield %>
+	</div>
+	<%= render "layouts/footer" %>
+	<%#= render "layouts/control_bar" %>
+	</div>
+
+
 </body>
 </html>

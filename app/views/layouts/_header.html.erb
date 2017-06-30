@@ -1,30 +1,48 @@
-<header id="header" class="page-section full-header">
-	<div id="header-wrap">
-		<div class="container clearfix">
-			<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-			<!-- Logo
-				============================================= -->
-			<div id="logo">
-				<a href="<%= root_path %>" class="standard-logo"><%= image_tag "header_logo.png", alt: "Volga Logo" %></a>
-				<a href="<%= root_path %>" class="retina-logo"><%= image_tag "header_logo.png", alt: "Volga Logo" %></a>
-			</div><!-- #logo end -->
+<header class="main-header">
+    <!-- Logo -->
+    <a href="<%= admin_root_path %>" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>V</b>C</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Volga</b>Cabs</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-			<!-- Primary Navigation
-				============================================= -->
-			<nav id="primary-menu">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag "avatar04.png", class: "user-image", alt: "User Image" %>
+              <span class="hidden-xs"><%= current_user.email %></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <%= image_tag "avatar04.png", class: "image-circle", alt: "User Image" %>
 
-				<ul>
-					<li class="current"><a href="index.html"><div>Ride</div></a>
-					</li>
-					<li><a href="#"><div>Drive</div></a>
-					</li>
-					<li><a href="#"><div>Help</div></a>
-					</li>
-					<li><a href="#"><div>Sign In</div></a>
-					</li>
-				</ul>
-			</nav>
-
-		</div>
-	</div>
+                <p>
+                  Alexander Pierce - Web Developer
+                  <!-- <small>Member since Nov. 2012</small> -->
+                </p>
+              </li>
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="<%= destroy_user_session_path %>" class="btn btn-default btn-flat" data-method="delete">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
 </header>
