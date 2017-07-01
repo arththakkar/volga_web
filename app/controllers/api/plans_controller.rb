@@ -1,4 +1,4 @@
-class Api::PlansController < ApplicationController
+class Api::PlansController < ApiApplicationController
 	def get_plan
 		car_type = CarType.find(params[:car_type_id].to_i)
 		model = params[:model].to_i if params[:model] != ""

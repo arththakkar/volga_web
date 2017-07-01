@@ -1,4 +1,4 @@
-class Api::AreasController < ApplicationController
+class Api::AreasController < ApiApplicationController
 	def index
 		@areas = Area.all.order(:name)
 	end

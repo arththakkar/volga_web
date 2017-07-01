@@ -1,4 +1,4 @@
-class Api::DriversController < ApplicationController
+class Api::DriversController < ApiApplicationController
 	def create
 		area = Area.find(params[:area_id])
 		@driver = area.drivers.build(name: params[:name], mobile_number: params[:mobile_number], car_plate_number: params[:car_plate_number], in_cab_business_from: params[:in_cab_business_from], plan: params[:plan], emi: params[:emi], emi_date_dd: params[:emi_date].to_i, car_id: params[:car_id], model: params[:model])

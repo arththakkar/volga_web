@@ -1,4 +1,4 @@
-class Api::FranchiseLeadersController < ApplicationController
+class Api::FranchiseLeadersController < ApiApplicationController
 	def create
 		area = Area.find(params[:area_id])
 		@franchise_leader = area.franchise_leaders.build(name: params[:name], birth_date: params[:birth_date], mobile_number: params[:mobile_number], exp_in_cab_business: params[:exp_in_cab_business], monthly_expectations: params[:monthly_expectations])
