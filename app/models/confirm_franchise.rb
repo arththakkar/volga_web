@@ -1,5 +1,5 @@
 class ConfirmFranchise < ActiveRecord::Base
-	after_create :generate_franchise_code
+	after_save :generate_franchise_code
 
 	private
 	def generate_franchise_code

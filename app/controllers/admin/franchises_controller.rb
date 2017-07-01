@@ -17,6 +17,10 @@ class Admin::FranchisesController < ApplicationController
 		end
 	end
 
+	def show
+		@franchise = ConfirmFranchise.find(params[:id])
+	end
+
 	private
 	def candidate_params
 		params.require(:confirm_franchise).permit(:name, :address1, :address2, :city, :state, :country, :birthdate, :pan_no, :email_id, :adhaar_no, :nominee_name, :relation_with_nominee, :amount, :cheque_no, :cheque_date, :bank_name, :is_pan_card, :is_adhaar_card, :is_light_bill, :mobile_no)

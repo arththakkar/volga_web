@@ -1,0 +1,185 @@
+<section class="content-header">
+  <h1>
+    Franchise
+    <small>Details</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<%= admin_confirm_franchises_path %>"><i class="fa fa-user"></i> Franchises</a></li>
+    <li class="active">Show Franchise</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+    	<div class="box">
+    		<div class="box-header">
+          <h3 class="box-title">Show Franchise</h3>
+          <div class="box-tools">
+            <%= link_to "<i class='fa fa-bars'></i>".html_safe, admin_confirm_franchises_path, class: "btn btn-info btn-primary" %>
+          </div>
+        </div>
+	    	<div class="box-body">
+	    		<div class="row">
+		        <%#= render "shared/flash_messages" %>
+		      </div>
+	    		<%= form_for @franchise, url: admin_confirm_franchises_path, method: :post do |f| %>
+		    		<div class="form-group">
+		    			<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.email_field :email_id, class: "form-control", placeholder: "Email Address", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+		    			<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :name, class: "form-control", placeholder: "Name", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+		    			<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :address1, class: "form-control", placeholder: "Address", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.select :address2, options_from_collection_for_select(Area.all, :name, :name), {}, class: "form-control select2", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :city, class: "form-control", placeholder: "City", value: "Ahmedabad", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :state, class: "form-control", placeholder: "State", value: "Gujarat", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      <div class="form-group">
+			        <div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :country, class: "form-control", placeholder: "Country", value: "India", required: true %>
+			          </div>
+			        </div>
+			      </div>
+			      
+			      <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :mobile_no, class: "form-control", placeholder: "Mobile Number", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :birthdate, class: "form-control", placeholder: "Date of Birth", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :adhaar_no, class: "form-control", placeholder: "Adhaar Number", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :pan_no, class: "form-control", placeholder: "PAN Number", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :nominee_name, class: "form-control", placeholder: "Nominee Name", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :relation_with_nominee, class: "form-control", placeholder: "Relation with Nominee", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :amount, class: "form-control", placeholder: "Amount", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :cheque_no, class: "form-control", placeholder: "Cheque Number", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :cheque_date, class: "form-control", placeholder: "Cheque Date", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.text_field :bank_name, class: "form-control", placeholder: "Bank Name", required: true %>
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.check_box :is_pan_card %> Pan Card Submitted
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.check_box :is_adhaar_card %> Adhaar Card Submitted
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.check_box :is_light_bill %> Light Bill Submitted
+			          </div>
+			        </div>
+		        </div>
+		        <div class="form-group">
+			       	<div class="row">
+			    			<div class="col-md-6">
+			          	<%= f.submit "Create", class: "btn btn-primary" %>
+			          </div>
+			        </div>
+		        </div>
+		      <% end %>
+	    	</div>
+    	</div>
+  	</div>
+  </div>
+</section>
+
+<script type="text/javascript">
+	$(".select2").select2();
+</script>
