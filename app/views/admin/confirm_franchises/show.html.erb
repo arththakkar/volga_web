@@ -1,0 +1,187 @@
+<section class="content-header">
+  <h1>
+    Franchise
+    <small>Details</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<%= admin_confirm_franchises_path %>"><i class="fa fa-user"></i> Franchises</a></li>
+    <li class="active">Show Franchise</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+    	<div class="box">
+    		<div class="box-header">
+          <h3 class="box-title">Show Franchise</h3>
+          <div class="box-tools">
+            <%= link_to "<i class='fa fa-angle-left'></i>".html_safe, admin_confirm_franchises_path, class: "btn btn-info btn-primary" %>
+            <%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_admin_confirm_franchise_path(@confirm_franchise), class: "btn btn-info btn-primary" %>
+          </div>
+        </div>
+	    	<div class="box-body">
+	    		<div class="row">
+		        <%#= render "shared/flash_messages" %>
+		      </div>
+	    		
+
+		      <div class="row">
+		      	<div class="col-lg-6">
+			    		<div class="form-group">
+			    			<div class="row">
+				    			<div class="col-md-6">
+				    				<%= @confirm_franchise.email_id %>
+				          	
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+			    			<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.name %>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+			    			<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.address1 %>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+				        <div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.address2 %>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+				        <div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.city %>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+				        <div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.state %>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="form-group">
+				        <div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.country %>
+				          </div>
+				        </div>
+				      </div>
+				      
+				      <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.mobile_no %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.birthdate %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.adhaar_no %>
+				          </div>
+				        </div>
+			        </div>
+			      </div>
+			    
+			    	<div class="col-lg-6">
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.pan_no %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.nominee_name %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.relation_with_nominee %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.amount %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.cheque_no %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.cheque_date %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.bank_name %>
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.is_pan_card %> Pan Card Submitted
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.is_adhaar_card %> Adhaar Card Submitted
+				          </div>
+				        </div>
+			        </div>
+			        <div class="form-group">
+				       	<div class="row">
+				    			<div class="col-md-6">
+				          	<%= @confirm_franchise.is_light_bill %> Light Bill Submitted
+				          </div>
+				        </div>
+			        </div>
+			      </div>
+			    </div>
+	    	</div>
+    	</div>
+  	</div>
+  </div>
+</section>
+
+<script type="text/javascript">
+	$(".select2").select2();
+</script>

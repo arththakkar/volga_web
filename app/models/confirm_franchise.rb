@@ -1,7 +1,6 @@
 class ConfirmFranchise < ActiveRecord::Base
-	after_save :generate_franchise_code
+	after_create :generate_franchise_code
 
-	private
 	def generate_franchise_code
 		part1 = self.name[0..2].to_s
 		part2 = self.birthdate.day.to_s

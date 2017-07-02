@@ -21,6 +21,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "home#index"
-    resources :confirm_franchises, controller: "franchises"
+    resources :confirm_franchises
   end
 end

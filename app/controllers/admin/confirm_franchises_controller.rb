@@ -1,4 +1,4 @@
-class Admin::FranchisesController < ApplicationController
+class Admin::ConfirmFranchisesController < ApplicationController
 	before_filter :formate_dates, only: [:create]
 	def index
 		@franchises = ConfirmFranchise.all
@@ -18,7 +18,21 @@ class Admin::FranchisesController < ApplicationController
 	end
 
 	def show
+		@confirm_franchise = ConfirmFranchise.find(params[:id])
+	end
+
+	def edit
 		@franchise = ConfirmFranchise.find(params[:id])
+	end
+
+	def update
+		@franchise = ConfirmFranchise.find(params[:id])
+		if @franchise.update_attributes(candidate_params)
+			@franchise.generate_franchise_code
+			redirect_to admin_confirm_franchises_path, notice: "Franchise updated successfully."
+		else
+			render 'edit' , notice: "Error in update."
+		end
 	end
 
 	private

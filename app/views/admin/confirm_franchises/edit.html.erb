@@ -1,12 +1,12 @@
 <section class="content-header">
   <h1>
-    Franchise
-    <small>Details</small>
+    Franchises
+    <small>Create</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
     <li><a href="<%= admin_confirm_franchises_path %>"><i class="fa fa-user"></i> Franchises</a></li>
-    <li class="active">Show Franchise</li>
+    <li class="active">New</li>
   </ol>
 </section>
 
@@ -15,7 +15,7 @@
     <div class="col-md-12">
     	<div class="box">
     		<div class="box-header">
-          <h3 class="box-title">Show Franchise</h3>
+          <h3 class="box-title">Add New Franchise</h3>
           <div class="box-tools">
             <%= link_to "<i class='fa fa-bars'></i>".html_safe, admin_confirm_franchises_path, class: "btn btn-info btn-primary" %>
           </div>
@@ -24,7 +24,7 @@
 	    		<div class="row">
 		        <%#= render "shared/flash_messages" %>
 		      </div>
-	    		<%= form_for @franchise, url: admin_confirm_franchises_path, method: :post do |f| %>
+	    		<%= form_for ["admin",@franchise] do |f| %>
 		    		<div class="form-group">
 		    			<div class="row">
 			    			<div class="col-md-6">
@@ -49,7 +49,8 @@
 			      <div class="form-group">
 			        <div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.select :address2, options_from_collection_for_select(Area.all, :name, :name), {}, class: "form-control select2", required: true %>
+			    				
+			          	<%= f.select :address2, options_for_select(Area.all.map {|a| [a.name , a.name]},@franchise.address2), {}, class: "form-control select2", required: true %>
 			          </div>
 			        </div>
 			      </div>
@@ -169,7 +170,7 @@
 		        <div class="form-group">
 			       	<div class="row">
 			    			<div class="col-md-6">
-			          	<%= f.submit "Create", class: "btn btn-primary" %>
+			          	<%= f.submit "Update", class: "btn btn-primary" %>
 			          </div>
 			        </div>
 		        </div>
