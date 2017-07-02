@@ -86,3 +86,9 @@ Car.create!(name: "Maruti Alto", car_type_id: small.id)
 Car.create!(name: "Tata Nano", car_type_id: small.id)
 Car.create!(name: "Hyundai Eon", car_type_id: small.id)
 Car.create!(name: "Maruti Eco", car_type_id: small.id)
+
+
+
+RoleType.create!(name: "Franchise")
+RoleType.create!(name: "Driver")
+RoleType.create!(name: "User")
