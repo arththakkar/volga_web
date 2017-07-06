@@ -1,4 +1,6 @@
 class ConfirmFranchise < ActiveRecord::Base
+	belongs_to :user
+
 	after_create :generate_franchise_code
 
 	def generate_franchise_code
@@ -9,5 +11,17 @@ class ConfirmFranchise < ActiveRecord::Base
 		code = part1 + part2 + part3 + part4
 		self.franchise_code = code.gsub(/\s+/, "").downcase
 		self.save
+	end
+
+	def autogenerate_franchise_login(franchise)
+		first_half = self.name[0..2].to_s
+		random_number = rand.to_s[2..5]
+		password = first_half+random_number
+
+		puts "=======#{first_half.inspect}====="
+		puts "=======#{random_number.inspect}====="
+		puts "=======#{password.inspect}====="
+
+		return password
 	end
 end

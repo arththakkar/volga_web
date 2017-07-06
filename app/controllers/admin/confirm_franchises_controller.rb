@@ -36,14 +36,14 @@ class Admin::ConfirmFranchisesController < ApplicationController
 	end
 
 	def create_franchise_login
-		# user = ConfirmFranchise.find(params[:id])
-		# password = user.autogenerate_franchise_login(user)
-		# if user.update_attributes(:password => password , :role_type => RoleType.find_by_name("Franchise"))
-		# 	redirect_to admin_confirm_franchises_path, notice: "Login is generated."
-		# else
-		# 	render :back , notice: "Someproblem found while perfoming this action."
-		# end
-
+		franchise = ConfirmFranchise.find(params[:id])
+		password = franchise.autogenerate_franchise_login(franchise)
+		user = User.new(email: franchise.email_id, :password => password , :role_type => RoleType.find_by_name("Franchise"))
+		if user.save
+			redirect_to admin_confirm_franchises_path, notice: "Login is generated."
+		else
+			render :back , notice: "Something went wrong."
+		end
 	end
 
 	private

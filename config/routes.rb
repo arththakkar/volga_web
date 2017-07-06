@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "home#index"
     resources :confirm_franchises
-    post "create_franchise_login" => "confirm_franchises#create_franchise_login"
+    post "create_franchise_login/:id", to: "confirm_franchises#create_franchise_login", as: :create_franchise_login
   end
 end
