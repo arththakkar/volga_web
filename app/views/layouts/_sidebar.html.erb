@@ -25,13 +25,13 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+        <li class="<%= active_class(admin_root_path) %>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <% if current_user.is_admin? %>
-          <li>
+          <li class="<%= active_class(admin_confirm_franchises_path) %>">
             <a href="<%= admin_confirm_franchises_path %>">
               <i class="fa fa-users"></i>
               <span>Franchises</span>
@@ -44,6 +44,27 @@
             <span>Drivers</span>
           </a>
         </li>
+        <% if current_user.is_admin? %>
+          <li class="header">Application Data</li>
+          <li>
+            <a href="#">
+              <i class="fa fa-users"></i>
+              <span>Franchise Leaders</span>
+            </a>
+          </li>
+          <li class="<%= active_class(franchises_path) %>">
+            <a href="<%= franchises_path %>">
+              <i class="fa fa-users"></i>
+              <span>Franchises</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-users"></i>
+              <span>Drivers</span>
+            </a>
+          </li>
+        <% end %>
         <!-- <li>
           <a href="<%#= candidates_path %>">
             <i class="fa fa-user"></i>

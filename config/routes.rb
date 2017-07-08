@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     get "/check_allocated", to: "areas#get_allocated"
   end
 
-  resources :drivers
-  resources :franchises
-  resources :franchise_leaders
+  resources :drivers, only: [:index, :show]
+  resources :franchises, only: [:index, :show]
+  resources :franchise_leaders, only: [:index, :show]
 
   namespace :admin do
     root "home#index"
