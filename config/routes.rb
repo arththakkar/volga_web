@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :drivers, only: [:index, :show]
   resources :franchises, only: [:index, :show]
   resources :franchise_leaders, only: [:index, :show]
-
+  get "/fetch_from_area", to: "franchises#fetch_from_area", as: :fetch_from_area
+  get "/export_franchise", to: "franchises#export_franchise", as: :export_franchise
   namespace :admin do
     root "home#index"
     resources :confirm_franchises

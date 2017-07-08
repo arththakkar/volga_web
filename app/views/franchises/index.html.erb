@@ -21,35 +21,45 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <th>Mobile Number</th>
-                <th>Cars in contact</th>
-                <th>Exp in Cab business</th>
-                <th>Monthly Expectations</th>
-                <th>Area</th>
-              </tr>
-              <% @franchises.each do |franchise| %>
-                <tr>
-                  <td><%= link_to franchise.name, admin_confirm_franchise_path(franchise) %></td>
-                  <td><%= franchise.address2 %></td>
-                  <td><%= franchise.email_id %></td>
-                  <td><%= franchise.cheque_no %></td>
-                  <td><%= franchise.cheque_date %></td>
-                  <td><%= franchise.bank_name %></td>
-                </tr>
+          <div class="row">
+            <div class="col-md-12">
+              <%= form_tag "/export_franchise", method: :post, remote: true do %>
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <%= select_tag "area", options_from_collection_for_select(@areas, :id, :name), class: "form-control select2" %>
+                    <%= link_to "Export", export_franchise_path(format: "xls"), class: "btn btn-primary" %>
+                  </div>
+                </div>
               <% end %>
-            </tbody>
-          </table>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Cars in contact</th>
+                    <th>Exp in Cab business</th>
+                    <th>Monthly Expectations</th>
+                    <th>Area</th>
+                  </tr>
+                  <div id="franchise_list">
+                    <%= render "franchise_list" %>
+                  </div>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
         <!-- /.box-body -->
       </div>
     </div>
   </div>
 </section>
-<h1><center>Franchise : 25/06/2017</center></h1>
+<!-- <h1><center>Franchise : 25/06/2017</center></h1>
 <table width="100%" border="1">
 	<tr>
 		<td>Name</td>
@@ -59,14 +69,34 @@
 		<td>Monthly Expectation</td>
 		<td>Area</td>
 	</tr>
-	<% @franchises.each do |franchise| %>
+	<%# @franchises.each do |franchise| %>
 	<tr>
-		<td><%= franchise.name %></td>
-		<td><%= franchise.mobile_number %></td>
-		<td><%= franchise.cars_in_contact %></td>
-		<td><%= franchise.exp_in_cab_business %></td>
-		<td><%= franchise.monthly_expectations %></td>
-		<td><%= franchise.area.name %></td>
+		<td><%#= franchise.name %></td>
+		<td><%#= franchise.mobile_number %></td>
+		<td><%#= franchise.cars_in_contact %></td>
+		<td><%#= franchise.exp_in_cab_business %></td>
+		<td><%#= franchise.monthly_expectations %></td>
+		<td><%#= franchise.area.name %></td>
 	</tr>
-	<% end %>
-</table>
+	<%# end %>
+</table> -->
+
+<script type="text/javascript">
+  // $(".select2").select2();
+
+  $("#area").change(function(){
+    // alert("in");
+    var id = $(this).val();
+    // alert(id);
+    $.ajax(
+      {
+        url: "/fetch_from_area",
+        data: {id: id},
+        type: "GET",
+        dataType: "script",
+        success: function(){
+        }
+      }
+    );
+  });
+</script>

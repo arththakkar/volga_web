@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Mobile Number</Data></Cell>
+        <Cell><Data ss:Type="String">Cars in Contact</Data></Cell>
+        <Cell><Data ss:Type="String">Exp in Cab Business</Data></Cell>
+        <Cell><Data ss:Type="String">Monthly Expectations</Data></Cell>
+        <Cell><Data ss:Type="String">Area</Data></Cell>
+      </Row>
+    <% @franchises.each do |franchise| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= franchise.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.mobile_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.cars_in_contact %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= franchise.exp_in_cab_business %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= franchise.monthly_expectations %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= franchise.area.name %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
