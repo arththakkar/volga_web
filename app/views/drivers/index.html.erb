@@ -1,29 +1,58 @@
-<h1><center>Driver : 25/06/2017</center></h1>
-<table width="100%" border="1">
-	<tr>
-		<td>Name</td>
-		<td>Mobile Number</td>
-		<td>Car Plate Number</td>
-		<td>EMI</td>
-		<td>EMI Date</td>
-		<td>In Cab Business From</td>
-		<td>Plan</td>
-		<td>Area</td>
-		<td>Car</td>
-		<td>Model</td>
-	</tr>
-	<% @drivers.each do |driver| %>
-	<tr>
-		<td><%= driver.name %></td>
-		<td><%= driver.mobile_number %></td>
-		<td><%= driver.car_plate_number %></td>
-		<td><%= driver.emi %></td>
-		<td><%= driver.emi_date_dd %></td>
-		<td><%= driver.in_cab_business_from %></td>
-		<td><%= driver.plan %></td>
-		<td><%= driver.area.name %></td>
-		<td><%= driver.try(:car).try(:name) %></td>
-		<td><%= driver.model %></td>
-	</tr>
-	<% end %>
-</table>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+
+			<div class="box">
+			  <div class="box-header">
+			    <h3 class="box-title">Data Table With Full Features</h3>
+			    <%= link_to "Export", export_driver_path(format: "xls"), class: "btn btn-primary" %>
+			  </div><!-- /.box-header -->
+			  <div class="box-body">
+			  	<table id="example2" class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<td>Name</td>
+								<td>Mobile Number</td>
+								<td>Car Plate Number</td>
+								<td>EMI</td>
+								<td>EMI Date</td>
+								<td>In Cab Business From</td>
+								<td>Plan</td>
+								<td>Area</td>
+								<td>Car</td>
+								<td>Model</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @drivers.each do |driver| %>
+								<tr>
+									<td><%= driver.name %></td>
+									<td><%= driver.mobile_number %></td>
+									<td><%= driver.car_plate_number %></td>
+									<td><%= driver.emi %></td>
+									<td><%= driver.emi_date_dd %></td>
+									<td><%= driver.in_cab_business_from %></td>
+									<td><%= driver.plan %></td>
+									<td><%= driver.area.name %></td>
+									<td><%= driver.try(:car).try(:name) %></td>
+									<td><%= driver.model %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+			    
+			  </div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+<script type="text/javascript">
+	$("#example2").dataTable();
+	$("#example1").dataTable();
+</script>

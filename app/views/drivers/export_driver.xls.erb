@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Mobile Number</Data></Cell>
+        <Cell><Data ss:Type="String">Car Plate Number</Data></Cell>
+        <Cell><Data ss:Type="String">EMI</Data></Cell>
+        <Cell><Data ss:Type="String">EMI Date</Data></Cell>
+        <Cell><Data ss:Type="String">In Cab Business From</Data></Cell>
+        <Cell><Data ss:Type="String">Plan</Data></Cell>
+        <Cell><Data ss:Type="String">Area</Data></Cell>
+        <Cell><Data ss:Type="String">Car</Data></Cell>
+        <Cell><Data ss:Type="String">Model</Data></Cell>
+      </Row>
+    <% @drivers.each do |driver| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= driver.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.mobile_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.car_plate_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.emi %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.emi_date_dd %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.in_cab_business_from %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.plan %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.area.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.try(:car).try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= driver.model %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
