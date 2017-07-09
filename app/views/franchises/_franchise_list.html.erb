@@ -1,10 +1,12 @@
-<% @franchises.each do |franchise| %>
-	<tr>
-		<td><%= franchise.name %></td>
-		<td><%= franchise.mobile_number %></td>
-		<td><%= franchise.cars_in_contact %></td>
-		<td><%= franchise.exp_in_cab_business %></td>
-		<td><%= franchise.monthly_expectations %></td>
-		<td><%= franchise.area.name %></td>
-	</tr>
-<% end %>
+<tbody>
+	<% @f.each do |f| %>
+		<tr>
+			<td><%= f.name %></td>
+			<td><%= f.mobile_number %></td>
+			<td><%= f.cars_in_contact %></td>
+			<td><%= f.exp_in_cab_business %></td>
+			<td><%= f.monthly_expectations %></td>
+			<td><%= f.area.name %></td>
+		</tr>
+	<% end %>
+</tbody>

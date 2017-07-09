@@ -15,7 +15,12 @@
 //= require jquery-ui.min
 //= require best_in_place
 //= require best_in_place.jquery-ui
-//= require turbolinks
+// require turbolinks
+
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
+//= require jquery.slimscroll.min
+
 //= require bootstrap-sprockets
 //= require raphael_min
 // require morris
@@ -27,10 +32,11 @@
 //= require daterangepicker
 //= require bootstrap-datepicker
 //= require bootstrap3-wysihtml5.all.min
-//= require jquery.slimscroll.min
+
 //= require fastclick
 //= require select2.full.min
 //= require app
 // require dashboard
 //= require demo
 // require_tree .
+

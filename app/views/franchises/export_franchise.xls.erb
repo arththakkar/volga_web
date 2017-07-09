@@ -16,12 +16,12 @@
       </Row>
     <% @franchises.each do |franchise| %>
       <Row>
-        <Cell><Data ss:Type="Number"><%= franchise.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= franchise.mobile_number %></Data></Cell>
         <Cell><Data ss:Type="String"><%= franchise.cars_in_contact %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= franchise.exp_in_cab_business %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= franchise.monthly_expectations %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= franchise.area.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.exp_in_cab_business %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.monthly_expectations %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= franchise.area.name %></Data></Cell>
       </Row>
     <% end %>
     </Table>

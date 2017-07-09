@@ -6,11 +6,14 @@ class FranchisesController < ApplicationController
 
 	def fetch_from_area
 		area = Area.find(params[:id])
-		puts area.inspect
+		puts "area===> #{area.inspect}===="
+		@f = Franchise.where("area_id = ?",area.id)
+		puts "franchises===> #{@f.inspect}===="
 	end
 
 	def export_franchise
 		@franchises = Franchise.all
+		puts @franchises.inspect
 		respond_to do |format|
 			format.html
 			format.xls
