@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/fetch_from_area", to: "franchises#fetch_from_area", as: :fetch_from_area
   get "/export_franchise", to: "franchises#export_franchise", as: :export_franchise
   get "/export_driver", to: "drivers#export_driver", as: :export_driver
+  get "/admin_index", to: "drivers#admin_index", as: :admin_index
   namespace :admin do
     root "home#index"
     resources :confirm_franchises

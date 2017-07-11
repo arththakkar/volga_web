@@ -41,7 +41,7 @@
         <% if current_user.is_franchise? %>
           <li>
             <% area = current_user_area %>
-            <a href="<%= area.present? ? drivers_path(area: area.id) : drivers_path(area: 'all') %>">
+            <a href="<%= drivers_path(area: area.id) %>">
               <i class="fa fa-users"></i>
               <span>Raw Drivers</span>
             </a>
@@ -68,8 +68,8 @@
               <span>Franchises</span>
             </a>
           </li>
-          <li class="<%= active_class(drivers_path) %>">
-            <a href="<%=drivers_path(:area => 'all') %>">
+          <li class="<%= active_class(admin_index_path) %>">
+            <a href="<%= admin_index_path %>">
               <i class="fa fa-users"></i>
               <span>Drivers</span>
             </a>
