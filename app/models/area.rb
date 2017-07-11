@@ -4,4 +4,6 @@ class Area < ActiveRecord::Base
 	has_many :drivers
 	has_many :franchise_leader_areas
 	has_many :franchise_areas
+	has_many :confirm_franchises
+	has_many :confirm_drivers
 end

@@ -32,70 +32,41 @@
                 </div>
               <% end %>
             </div>
+            <br /><br />
+            <div class="col-md-12">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Cars in contact</th>
+                    <th>Exp in Cab business</th>
+                    <th>Monthly Expectations</th>
+                    <th>Area</th>
+                  </tr>
+                </thead>
+                <div id="f_list">
+                  <tbody>
+                    <% @franchises.each do |franchise| %>
+                      <tr>
+                        <td><%= franchise.name %></td>
+                        <td><%= franchise.mobile_number %></td>
+                        <td><%= franchise.cars_in_contact %></td>
+                        <td><%= franchise.exp_in_cab_business %></td>
+                        <td><%= franchise.monthly_expectations %></td>
+                        <td><%= franchise.area.name %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </div>
+              </table>
+            </div>
           </div>
         </div>
-        <br/>
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Data Table With Full Features</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Mobile Number</th>
-                  <th>Cars in contact</th>
-                  <th>Exp in Cab business</th>
-                  <th>Monthly Expectations</th>
-                  <th>Area</th>
-                </tr>
-              </thead>
-              <div id="f_list">
-                <tbody>
-                  <% @franchises.each do |franchise| %>
-                    <tr>
-                      <td><%= franchise.name %></td>
-                      <td><%= franchise.mobile_number %></td>
-                      <td><%= franchise.cars_in_contact %></td>
-                      <td><%= franchise.exp_in_cab_business %></td>
-                      <td><%= franchise.monthly_expectations %></td>
-                      <td><%= franchise.area.name %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </div>
-            </table>
-          </div>
-        </div>
-     
-        <!-- /.box-body -->
       </div>
     </div>
   </div>
 </section>
-<!-- <h1><center>Franchise : 25/06/2017</center></h1>
-<table width="100%" border="1">
-	<tr>
-		<td>Name</td>
-		<td>Mobile Number</td>
-		<td>Cars in Contact</td>
-		<td>Exp in cab business</td>
-		<td>Monthly Expectation</td>
-		<td>Area</td>
-	</tr>
-	<%# @franchises.each do |franchise| %>
-	<tr>
-		<td><%#= franchise.name %></td>
-		<td><%#= franchise.mobile_number %></td>
-		<td><%#= franchise.cars_in_contact %></td>
-		<td><%#= franchise.exp_in_cab_business %></td>
-		<td><%#= franchise.monthly_expectations %></td>
-		<td><%#= franchise.area.name %></td>
-	</tr>
-	<%# end %>
-</table> -->
 
 <script type="text/javascript">
   // $(".select2").select2();

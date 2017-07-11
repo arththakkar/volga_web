@@ -40,9 +40,6 @@ GEM
     autoprefixer-rails (7.1.1.2)
       execjs
     bcrypt (3.1.11)
-    best_in_place (3.0.3)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
@@ -90,6 +87,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
+    nested_form (0.3.2)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
@@ -167,7 +165,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_in_place (~> 3.0.1)
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
@@ -175,6 +172,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  nested_form
   pg
   rails (= 4.2.3)
   sass-rails (~> 5.0)

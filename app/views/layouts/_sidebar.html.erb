@@ -38,12 +38,22 @@
             </a>
           </li>
         <% end %>
-        <li>
-          <a href="#">
-            <i class="fa fa-users"></i>
-            <span>Drivers</span>
-          </a>
-        </li>
+        <% if current_user.is_franchise? %>
+          <li>
+            <% area = current_user_area %>
+            <a href="<%= area.present? ? drivers_path(area: area.id) : drivers_path(area: 'all') %>">
+              <i class="fa fa-users"></i>
+              <span>Raw Drivers</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="<%= admin_confirm_drivers_path %>">
+              <i class="fa fa-user-plus"></i>
+              <span>Confirm Drivers</span>
+            </a>
+          </li>
+        <% end %>
         <% if current_user.is_admin? %>
           <li class="header">Application Data</li>
           <li>
@@ -58,7 +68,7 @@
               <span>Franchises</span>
             </a>
           </li>
-          <li class="<%= active_class(franchises_path) %>">
+          <li class="<%= active_class(drivers_path) %>">
             <a href="<%=drivers_path %>">
               <i class="fa fa-users"></i>
               <span>Drivers</span>

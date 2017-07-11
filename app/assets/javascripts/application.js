@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.min
-//= require best_in_place
-//= require best_in_place.jquery-ui
+//= require jquery_nested_form
 // require turbolinks
 
 //= require jquery.dataTables.min

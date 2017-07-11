@@ -1,5 +1,6 @@
 class ConfirmFranchise < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :area
 
 	after_create :generate_franchise_code
 
@@ -17,11 +18,6 @@ class ConfirmFranchise < ActiveRecord::Base
 		first_half = self.name[0..2].to_s
 		random_number = rand.to_s[2..5]
 		password = first_half+random_number
-
-		puts "=======#{first_half.inspect}====="
-		puts "=======#{random_number.inspect}====="
-		puts "=======#{password.inspect}====="
-
 		return password
 	end
 end
