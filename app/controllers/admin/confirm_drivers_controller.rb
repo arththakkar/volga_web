@@ -1,7 +1,8 @@
 class Admin::ConfirmDriversController < ApplicationController
+	include ApplicationHelper
 	def index
 		if current_user.is_franchise?
-			@confirm_drivers = ConfirmDriver.where(area: current_user_area.id)
+			@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
 		else
 			@confirm_drivers = ConfirmDriver.all
 		end
