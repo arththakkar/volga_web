@@ -1,6 +1,10 @@
 class Admin::ConfirmDriversController < ApplicationController
 	def index
-		@confirm_drivers = ConfirmDriver.all
+		if current_user.is_franchise?
+			@confirm_drivers = ConfirmDriver.where(area: current_user_area.id)
+		else
+			@confirm_drivers = ConfirmDriver.all
+		end
 	end
 
 	def new
