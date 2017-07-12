@@ -19,6 +19,10 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
 //= require jquery.slimscroll.min
+//= require input-mask/jquery.inputmask
+//= require input-mask/jquery.inputmask.date.extensions
+//= require input-mask/jquery.inputmask.extensions
+
 
 //= require bootstrap-sprockets
 //= require raphael_min
