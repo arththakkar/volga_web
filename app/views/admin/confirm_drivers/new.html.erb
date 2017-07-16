@@ -25,6 +25,7 @@
 						<%#= render "shared/flash_messages" %>
 					</div>
 					<%= nested_form_for @confirm_driver, url: admin_confirm_drivers_path, method: :post do |f| %>
+						<%= hidden_field_tag "confirm_driver[confirm_franchise_id]", current_user.id if current_user.is_franchise? %>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
@@ -109,6 +110,31 @@
 												<label>Address Proof Number</label>
 												<%= f.text_field :address_proof_number, class: "form-control", placeholder: "Unique Number", required: true %>
 											</div>									
+										</div>
+									</div>
+									<div class="box box-warning">
+										<div class="box-header">
+										<h3 class="box-title">Bank Details</h3>
+										</div>
+										<div class="box-body">
+											<%= f.fields_for :driver_bank_detail, @confirm_driver.driver_bank_detail do |bd| %>
+												<div class="form-group">
+													<label>Bank Name</label>
+													<%= bd.text_field :bank_name, class: "form-control", required: true %>
+												</div>
+												<div class="form-group">
+													<label>Branch Name</label>
+													<%= bd.text_field :branch_name, class: "form-control", required: true %>
+												</div>
+												<div class="form-group">
+													<label>Account Number</label>
+													<%= bd.text_field :account_number, class: "form-control", required: true %>
+												</div>
+												<div class="form-group">
+													<label>IFSC Code</label>
+													<%= bd.text_field :ifsc_code, class: "form-control", required: true %>
+												</div>
+											<% end %>
 										</div>
 									</div>
 								</div>

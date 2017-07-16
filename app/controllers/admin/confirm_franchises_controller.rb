@@ -1,7 +1,11 @@
 class Admin::ConfirmFranchisesController < ApplicationController
 	before_filter :formate_dates, only: [:create]
 	def index
-		@franchises = ConfirmFranchise.all
+		if current_user.is_admin?
+			@franchises = ConfirmFranchise.all
+		else
+			redirect_to admin_root_path
+		end
 	end
 
 	def new
@@ -18,11 +22,19 @@ class Admin::ConfirmFranchisesController < ApplicationController
 	end
 
 	def show
-		@confirm_franchise = ConfirmFranchise.find(params[:id])
+		if current_user.is_admin?
+			@confirm_franchise = ConfirmFranchise.find(params[:id])
+		else
+			redirect_to admin_root_path
+		end
 	end
 
 	def edit
-		@franchise = ConfirmFranchise.find(params[:id])
+		if current_user.is_admin?
+			@franchise = ConfirmFranchise.find(params[:id])
+		else
+			redirect_to admin_root_path
+		end
 	end
 
 	def update

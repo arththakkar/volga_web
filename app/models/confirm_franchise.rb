@@ -1,7 +1,7 @@
 class ConfirmFranchise < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :area
-
+	has_many :confirm_drivers
 	after_create :generate_franchise_code
 
 	def generate_franchise_code
