@@ -40,8 +40,7 @@
         <% end %>
         <% if current_user.is_franchise? %>
           <li>
-            <% area = current_user_area %>
-            <a href="<%= drivers_path(area: area.id) %>">
+            <a href="<%= drivers_path %>">
               <i class="fa fa-users"></i>
               <span>Raw Drivers</span>
             </a>

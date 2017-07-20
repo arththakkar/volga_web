@@ -1,7 +1,7 @@
 class DriversController < ApplicationController
 	include ApplicationHelper
 	def index
-		@drivers = Driver.where(area_id: params[:area])
+		@drivers = Driver.where(area_id: current_user_area.id)
 	end
 
 	def admin_index
