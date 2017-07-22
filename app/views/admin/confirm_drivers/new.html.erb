@@ -25,7 +25,7 @@
 						<%#= render "shared/flash_messages" %>
 					</div>
 					<%= nested_form_for @confirm_driver, url: admin_confirm_drivers_path, method: :post do |f| %>
-						<%= hidden_field_tag "confirm_driver[confirm_franchise_id]", current_user.id if current_user.is_franchise? %>
+						<%= hidden_field_tag "confirm_driver[confirm_franchise_id]", current_user.confirm_franchise.id if current_user.is_franchise? %>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
