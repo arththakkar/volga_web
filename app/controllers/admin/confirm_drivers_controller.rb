@@ -4,7 +4,7 @@ class Admin::ConfirmDriversController < ApplicationController
 		if current_user.is_franchise?
 			@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
 		else
-			@confirm_drivers = ConfirmDriver.all
+			@confirm_drivers = ConfirmDriver.includes(:confirm_franchise).all
 		end
 	end
 
@@ -20,6 +20,20 @@ class Admin::ConfirmDriversController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def show
+		@confirm_driver = ConfirmDriver.find(params[:id])
+		unless confirm_driver.confirm_franchise == current_user
+			redirect_to admin_confirm_drivers_path
+		end
+	end
+
+	def edit
+		@confirm_driver = ConfirmDriver.find(params[:id])
+	end
+
+	def update
 	end
 
 	private

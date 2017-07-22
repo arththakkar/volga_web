@@ -27,20 +27,27 @@
                 <th>Mobile Number</th>
                 <th>Car</th>
                 <th>Car Model</th>
-                <th>Badge Number</th>
+                <th>Plan</th>
                 <th>Area</th>
+                <% if current_user.is_admin? %>
+                  <th>Added By</th>
+                <% end %>
               </tr>
             </thead>
             <div id="f_list">
               <tbody>
                 <% @confirm_drivers.each do |driver| %>
+                  <%= puts driver.id %>
                   <tr>
                     <td><%= driver.full_name %></td>
                     <td><%= driver.mobile_number %></td>
                     <td><%= driver.car.name %></td>
                     <td><%= driver.car_model %></td>
-                    <td><%= driver.badge_number %></td>
+                    <td><%= driver.scheme %></td>
                     <td><%= driver.area.name %></td>
+                    <% if current_user.is_admin? %>
+                      <td><%= driver.confirm_franchise.try(:name) %></td>
+                    <% end %>
                   </tr>
                 <% end %>
               </tbody>
