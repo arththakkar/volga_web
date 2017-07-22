@@ -4,7 +4,7 @@ class Admin::ConfirmDriversController < ApplicationController
 		if current_user.is_franchise?
 			@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
 		else
-			@confirm_drivers = ConfirmDriver.includes(:confirm_franchise).all
+			@confirm_drivers = ConfirmDriver.includes(:confirm_franchise).order(created_at: :desc).all
 		end
 	end
 

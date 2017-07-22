@@ -31,6 +31,7 @@
                 <th>Area</th>
                 <% if current_user.is_admin? %>
                   <th>Added By</th>
+                  <th>Created At</th>
                 <% end %>
               </tr>
             </thead>
@@ -47,6 +48,7 @@
                     <td><%= driver.area.name %></td>
                     <% if current_user.is_admin? %>
                       <td><%= driver.confirm_franchise.try(:name) %></td>
+                      <td><%= driver.created_at.strftime("%d-%m-%Y") %></td>
                     <% end %>
                   </tr>
                 <% end %>
