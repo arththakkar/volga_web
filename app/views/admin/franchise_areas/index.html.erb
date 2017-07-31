@@ -1,0 +1,71 @@
+<section class="content-header">
+  <h1>
+    Franchises
+    <small>Areas</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Franchises</li>
+  </ol>
+</section>
+<section class="invoice">
+  <!-- title row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        Franchise Area
+      </h2>
+    </div><!-- /.col -->
+  </div>
+  <!-- info row -->
+  <%= form_tag admin_franchise_areas_path ,method: "post" do %>
+    <div class="row invoice-info">
+      <div class="col-sm-4 invoice-col">
+        <address>
+          <%= select_tag :franchise_id, options_for_select(@franchise.map{ |f| [f.name , f.id]}), class: "form-control select2", :prompt => "Select Franchise" , required: true %>
+        </address>
+      </div><!-- /.col -->
+      <div class="col-sm-4 invoice-col">
+        <address>
+          <%= select_tag :area_id, options_for_select(@area.map{ |a| [a.name , a.id]}), class: "form-control select2", :prompt => "Select Area" , required: true %>
+        </address>
+      </div><!-- /.col -->
+      <div class="col-sm-4 invoice-col">
+        <%= button_tag 'Submit' , class: 'btn btn-success' %>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  <% end %>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">List of Franchises</h3>
+          <div class="box-tools">
+            <%#= link_to "<i class='fa fa-plus'></i>".html_safe, new_admin_confirm_franchise_path, class: "btn btn-info btn-primary" %>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Area</th>
+              </tr>
+              <% @franchise_area.each do |f| %>
+                <tr>
+                  <td><%= f.franchise.name%></td>
+                  <td><%= f.area.name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>

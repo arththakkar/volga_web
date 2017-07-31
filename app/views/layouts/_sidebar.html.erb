@@ -43,6 +43,12 @@
               <span>Drivers</span>
             </a>
           </li>
+          <li class="<%= active_class(admin_franchise_areas_path) %>">
+            <a href="<%= admin_franchise_areas_path %>">
+              <i class="fa fa-users"></i>
+              <span>Franchise Area</span>
+            </a>
+          </li>
         <% end %>
         <% if current_user.is_franchise? %>
           <li>
