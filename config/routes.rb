@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :drivers, only: [:index, :show]
   resources :franchises, only: [:index, :show]
   resources :franchise_leaders, only: [:index, :show]
+
   get "/fetch_from_area", to: "franchises#fetch_from_area", as: :fetch_from_area
   get "/export_franchise", to: "franchises#export_franchise", as: :export_franchise
   get "/export_driver", to: "drivers#export_driver", as: :export_driver
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
     root "home#index"
     resources :confirm_franchises
     resources :confirm_drivers
+    resources :franchise_areas
     post "create_franchise_login/:id", to: "confirm_franchises#create_franchise_login", as: :create_franchise_login
   end
 end
