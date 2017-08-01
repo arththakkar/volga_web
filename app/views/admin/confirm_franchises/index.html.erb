@@ -30,6 +30,7 @@
                 <th>Cheque Number</th>
                 <th>Cheque Date</th>
                 <th>Bank Name</th>
+                <th>Actions</th>
               </tr>
               <% @franchises.each do |franchise| %>
                 <tr>
@@ -39,6 +40,7 @@
                   <td><%= franchise.cheque_no %></td>
                   <td><%= franchise.cheque_date %></td>
                   <td><%= franchise.bank_name %></td>
+                  <td><%= link_to "Delete", admin_confirm_franchise_path(franchise), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
                 </tr>
               <% end %>
             </tbody>
