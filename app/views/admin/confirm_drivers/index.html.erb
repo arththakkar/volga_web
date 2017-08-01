@@ -39,7 +39,7 @@
                 <% @confirm_drivers.each do |driver| %>
                   <%= puts driver.id %>
                   <tr>
-                    <td><%= driver.full_name %></td>
+                    <td><%= link_to driver.full_name, edit_admin_confirm_driver_path(driver) %></td>
                     <td><%= driver.mobile_number %></td>
                     <td><%= driver.car.name %></td>
                     <td><%= driver.car_model %></td>
