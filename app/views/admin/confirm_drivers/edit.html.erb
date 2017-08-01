@@ -6,7 +6,7 @@
 	<ol class="breadcrumb">
 		<li><a href="<%= admin_root_path %>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		<li><a href="<%= admin_confirm_drivers_path %>"><i class="fa fa-user"></i> Drivers</a></li>
-		<li class="active">New</li>
+		<li class="active">Edit</li>
 	</ol>
 </section>
 
@@ -15,7 +15,7 @@
 		<div class="col-md-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">Add New Chauffeur</h3>
+					<h3 class="box-title">Edit Chauffeur</h3>
 					<div class="box-tools">
 						<%= link_to "<i class='fa fa-bars'></i>".html_safe, admin_confirm_drivers_path, class: "btn btn-info btn-primary" %>
 					</div>
@@ -24,7 +24,7 @@
 					<div class="row">
 						<%#= render "shared/flash_messages" %>
 					</div>
-					<%= nested_form_for @confirm_driver, url: admin_confirm_drivers_path, method: :post do |f| %>
+					<%= nested_form_for @confirm_driver, url: admin_confirm_driver_path do |f| %>
 						<%= hidden_field_tag "confirm_driver[confirm_franchise_id]", current_user.confirm_franchise.id if current_user.is_franchise? %>
 						<div class="form-group">
 							<div class="row">
@@ -36,11 +36,11 @@
 										<div class="box-body">
 											<div class="form-group">
 												<label>Car Type</label>
-												<%= select_tag "car_type", options_from_collection_for_select(CarType.all, :id, :name), prompt: "Select Car Type", class: "form-control select2", required: true %>
+												<%= select_tag "car_type", options_for_select(CarType.all.map {|c| [c.name , c.id]},@confirm_driver.car.car_type_id), prompt: "Select Car Type", class: "form-control select2", required: true %>
 											</div>
 											<div class="form-group">
 												<label>Car</label>
-												<%= f.select :car_id, [], {prompt: "Select Car"}, class: "form-control select2", required: true %>
+												<%= f.select :car_id, options_for_select(Car.all.map {|c| [c.name , c.id]},@confirm_driver.car_id), {prompt: "Select Car"}, class: "form-control select2", required: true %>
 											</div>
 											<div class="form-group">
 												<label>Car Model</label>
@@ -48,7 +48,7 @@
 											</div>
 											<div class="form-group">
 												<label>Select Plan</label>
-												<%= f.select :scheme, [], {prompt: "Select Plan"}, class: "form-control", required: true %>
+												<%= f.select :scheme, ["ABC"], {prompt: "Select Plan"}, class: "form-control", required: true %>
 											</div>
 											<div class="form-group">
 												<label>Car Engine Number</label>
@@ -194,7 +194,7 @@
 											</div>
 											<div class="form-group">
 												<label>Insurance Expiry Date</label>
-												<%= f.text_field :insurance_expiry_date, class: "form-control", data: { inputmask: "'alias': 'dd/mm/yyyy'", mask: "" }, required: true %>
+												<%= f.text_field :insurance_expiry_date, class: "form-control ins_exp", required: true %>
 											</div>
 										</div>
 									</div>
@@ -234,7 +234,7 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
-									<%= f.submit "Create", class: "btn btn-primary" %>
+									<%= f.submit "Update", class: "btn btn-warning" %>
 								</div>
 							</div>
 						</div>
