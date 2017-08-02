@@ -18,6 +18,7 @@ class ApiIndexRenderer
 			index_arr << ApiIndexRenderer.new("Car List", "car_list", "GET")
 			index_arr << ApiIndexRenderer.new("Plan List", "plan_list", "GET")
 			index_arr << ApiIndexRenderer.new("Allocated Area", "allocated_area", "GET")
+			index_arr << ApiIndexRenderer.new("Confirm Drivers", "confirm_drivers", "GET")
 		end
 	end
 end

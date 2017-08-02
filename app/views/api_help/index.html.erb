@@ -117,3 +117,13 @@
               {name: 'type', description: 'FranchiseLeader or Franchise', required: 1},
             ],
             options: {}} %>
+
+<!-- Allocated Area -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Confirm Drivers',
+            link_href: 'confirm_drivers',
+            link_method: 'GET',
+            original_link: api_confirm_drivers_path,
+            parameters: [
+            ],
+            options: {}} %>
