@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     case current_user.role_type.name
-    when "Admin", "Franchise"
+    when "Admin", "Franchise", "Employee"
       flash[:notice] = "Logged in Successfully"
       admin_root_path
     end      
