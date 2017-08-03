@@ -30,42 +30,46 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <% if current_user.is_admin? %>
-          <li class="<%= active_class(admin_confirm_franchises_path) %>">
-            <a href="<%= admin_confirm_franchises_path %>">
-              <i class="fa fa-users"></i>
-              <span>Franchises</span>
-            </a>
-          </li>
+        <% if current_user.is_admin? or current_user.is_employee? %>
+          <% if current_user.is_admin? %>
+            <li class="<%= active_class(admin_confirm_franchises_path) %>">
+              <a href="<%= admin_confirm_franchises_path %>">
+                <i class="fa fa-users"></i>
+                <span>Franchises</span>
+              </a>
+            </li>
+          <% end %>
           <li class="<%= active_class(admin_confirm_drivers_path) %>">
             <a href="<%= admin_confirm_drivers_path %>">
               <i class="fa fa-users"></i>
               <span>Drivers</span>
             </a>
           </li>
-          <li class="<%= active_class(admin_franchise_areas_path) %>">
-            <a href="<%= admin_franchise_areas_path %>">
-              <i class="fa fa-users"></i>
-              <span>Franchise Area</span>
-            </a>
-          </li>
+          <% if current_user.is_admin? %>
+            <li class="<%= active_class(admin_franchise_areas_path) %>">
+              <a href="<%= admin_franchise_areas_path %>">
+                <i class="fa fa-users"></i>
+                <span>Franchise Area</span>
+              </a>
+            </li>
+          <% end %>
         <% end %>
         <% if current_user.is_franchise? %>
-          <li>
+          <li class="<%= active_class(drivers_path) %>">
             <a href="<%= drivers_path %>">
               <i class="fa fa-users"></i>
               <span>Raw Drivers</span>
             </a>
           </li>
 
-          <li>
+          <li class="<%= active_class(admin_confirm_drivers_path) %>">
             <a href="<%= admin_confirm_drivers_path %>">
               <i class="fa fa-user-plus"></i>
               <span>Confirm Drivers</span>
             </a>
           </li>
         <% end %>
-        <% if current_user.is_admin? %>
+        <% if current_user.is_admin? or current_user.is_employee? %>
           <li class="header">Application Data</li>
           <li>
             <a href="#">

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get "/get_plan", to: "plans#get_plan"
     get "/check_allocated", to: "areas#get_allocated"
     get "/confirm_drivers", to: "confirm_drivers#index", as: :confirm_drivers
+    get "/confirm_driver_show", to: "confirm_drivers#show", as: :confirm_driver_show
   end
 
   resources :drivers, only: [:index, :show]

@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def is_franchise?
   	self.role_type.name == "Franchise"
   end
+
+  def is_employee?
+    self.role_type.name == "Employee"
+  end
 end

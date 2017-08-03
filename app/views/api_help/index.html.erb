@@ -118,12 +118,23 @@
             ],
             options: {}} %>
 
-<!-- Allocated Area -->
+<!-- Confirm Driber List -->
 <%= render  partial: 'api', locals: {
             link_name: 'Confirm Drivers',
             link_href: 'confirm_drivers',
             link_method: 'GET',
             original_link: api_confirm_drivers_path,
             parameters: [
+            ],
+            options: {}} %>
+
+<!--  Confirm Driber Show -->
+<%= render  partial: 'api', locals: {
+            link_name: 'Confirm Driver Show',
+            link_href: 'confirm_driver_show',
+            link_method: 'GET',
+            original_link: api_confirm_driver_show_path,
+            parameters: [
+              {name: 'id', description: 'Confirm Driver ID', required: 1},
             ],
             options: {}} %>
