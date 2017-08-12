@@ -48,6 +48,8 @@ class Admin::ConfirmDriversController < ApplicationController
 	end
 	def format_dates
 		params[:confirm_driver][:birth_date] = DateTime.strptime(params[:confirm_driver][:birth_date], "%m-%d-%Y") if params[:confirm_driver][:birth_date].present?
+		params[:confirm_driver][:insurance_expiry_date] = DateTime.strptime(params[:confirm_driver][:insurance_expiry_date], "%m-%d-%Y") if params[:confirm_driver][:insurance_expiry_date].present?
+		
 		params[:confirm_driver][:family_detail_attributes][:birth_date] = DateTime.strptime(params[:confirm_driver][:family_detail_attributes][:birth_date], "%m-%d-%Y") if params[:confirm_driver][:family_detail_attributes][:birth_date].present?
 	end
 end
