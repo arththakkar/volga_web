@@ -1,7 +1,11 @@
 class DriversController < ApplicationController
 	include ApplicationHelper
 	def index
-		@drivers = Driver.where(area_id: current_user_area.id)
+		unless current_user.is_latest?
+			@drivers = Driver.where(area_id: current_user_area.id)
+		else
+			@drivers = Driver.where(area_id: current_user.confirm_franchise.areas.pluck(:id))
+		end
 	end
 
 	def admin_index

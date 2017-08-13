@@ -2,6 +2,8 @@ class ConfirmFranchise < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :area
 	has_many :confirm_drivers
+	has_many :areas, through: :confirm_franchise_areas
+	has_many :confirm_franchise_areas
 	after_create :generate_franchise_code
 
 	def generate_franchise_code
