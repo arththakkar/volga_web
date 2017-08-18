@@ -168,7 +168,7 @@
 											</div>
 											<div class="form-group">
 												<label>Area</label>
-												<%= f.select :area_id, options_from_collection_for_select(Area.all.order(name: :asc), :id, :name), {prompt: "Select Area"}, class: "form-control select2", required: true %>
+												<%= f.select :area_id, options_for_select(Area.all.map {|a| [a.name , a.id] },@confirm_driver.area_id), {prompt: "Select Area"}, class: "form-control select2", required: true %>
 											</div>
 											<div class="form-group">
 												<label>City</label>
