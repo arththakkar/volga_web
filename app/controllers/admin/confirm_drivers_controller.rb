@@ -1,5 +1,6 @@
 class Admin::ConfirmDriversController < ApplicationController
 	include ApplicationHelper
+	
 	def index
 		if current_user.is_franchise?
 			@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
@@ -31,6 +32,7 @@ class Admin::ConfirmDriversController < ApplicationController
 
 	def edit
 		@confirm_driver = ConfirmDriver.find(params[:id])
+		@plan = get_plan
 	end
 
 	def update
@@ -40,6 +42,34 @@ class Admin::ConfirmDriversController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def get_plan
+		car_type = @confirm_driver.car.car_type_id
+		model = @confirm_driver.car_model.to_i
+		@plan = []
+		puts "----here----"
+		if car_type == 1 
+			if model >= 2015
+				@plan << "Rs. 63,500 (15 Hours/Day for 30 Days)"
+			end
+			@plan << "Rs. 45,000 (12 Hours/Day, for 30 Days)"
+			@plan << "Rs. 1,250 (15 Hours/Day, Fuel Extra)"
+			@plan << "Rs. 1,000 (12 Hours/Day, Fuel Extra)"
+		end
+
+		if car_type == 2 
+			@plan << "Rs. 40,000 (12 Hours/Day, for 30 Days)"
+			@plan << "Rs. 1,000 (15 Hours/Day, Fuel Extra)"
+			@plan << "Rs. 750 (12 Hours/Day, Fuel Extra)"
+		end
+
+		if car_type == 3
+			@plan << "Rs. 35,000 (12 Hours/Day, for 30 Days)"
+		end
+		return @plan
+
+		puts "====#{@plan.inspect}====="
 	end
 
 	private
