@@ -3,7 +3,11 @@ class Admin::ConfirmDriversController < ApplicationController
 	
 	def index
 		if current_user.is_franchise?
-			@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
+			if current_user.is_latest?
+				@confirm_drivers = ConfirmDriver.where(area_id: current_user.confirm_franchise.confirm_franchise_areas.pluck(:area_id))
+			else
+				@confirm_drivers = ConfirmDriver.where(area_id: current_user_area.id)
+			end
 		else
 			@confirm_drivers = ConfirmDriver.includes(:confirm_franchise).order(created_at: :desc).all
 		end
