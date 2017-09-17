@@ -41,7 +41,7 @@
                   <%= puts driver.id %>
                   <tr>
                     <td><%= link_to driver.full_name, edit_admin_confirm_driver_path(driver) %></td>
-                    <td><%= driver.mobile_number %></td>
+                    <td><%= driver.mobile_number.delete(" ") %></td>
                     <td><%= driver.car.name %></td>
                     <td><%= driver.car_model %></td>
                     <td><%= driver.scheme %></td>
