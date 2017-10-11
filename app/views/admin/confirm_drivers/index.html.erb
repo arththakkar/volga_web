@@ -24,6 +24,7 @@
             <thead>
               <tr>
                 <th>First Name</th>
+                <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Mobile Number</th>
                 <th>Car</th>
@@ -43,6 +44,7 @@
                   <%= puts driver.id %>
                   <tr>
                     <td><%= link_to driver.first_name, edit_admin_confirm_driver_path(driver) %></td>
+                    <td><%= driver.middle_name %></td>
                     <td><%= driver.last_name %></td>
                     <td><%= driver.mobile_number.delete(" ") %></td>
                     <td><%= driver.car.name %></td>
